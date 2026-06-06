@@ -4,9 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# ==========================================
-# KONFIGURASI HALAMAN UTAMA (PAGE CONFIG)
-# ==========================================
 st.set_page_config(
     page_title="Movie Recommender System - Ensemble Learning",
     page_icon="🎬",
@@ -14,12 +11,8 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Mengatur tema visualisasi dasar Seaborn agar serasi dengan Dark Mode Streamlit
 sns.set_theme(style="darkgrid")
 
-# ==========================================
-# FUNGSI CACHE UNTUK OPTIMALISASI MEMORI
-# ==========================================
 @st.cache_data
 def load_data():
     movies = pd.read_csv("movies.csv")
@@ -31,9 +24,6 @@ try:
 except Exception as e:
     st.error(f"⚠️ Gagal memuat file dataset. Pastikan movies.csv dan ratings.csv berada di folder utama. Error: {e}")
 
-# ==========================================
-# SIDEBAR NAVIGATION & IDENTITAS KAMPUS
-# ==========================================
 st.sidebar.markdown("# 🎬 MovieRec-ML")
 st.sidebar.caption("Sistem Rekomendasi Film berbasis Ensemble Learning untuk Mengatasi Information Overload.")
 
@@ -50,9 +40,6 @@ st.sidebar.markdown("### Institution")
 st.sidebar.info("🏫 **BINUS University**\n\nSchool of Computer Science\n\nComputer Science Department")
 
 
-# ==========================================
-# 1. KONTEN HALAMAN: HOME
-# ==========================================
 if page == "🏠 Home":
     st.markdown("# MovieRec-ML 🎬")
     st.markdown("### Perancangan dan Implementasi Sistem Rekomendasi Film Menggunakan Algoritma Ensemble Learning")
@@ -88,9 +75,6 @@ if page == "🏠 Home":
             st.write("Menyediakan antarmuka web interaktif yang stabil dan mudah dipahami oleh pengguna non-teknis untuk melakukan simulasi pencarian rekomendasi film teratas (*Top-N Recommendations*) secara *real-time*.")
 
 
-# ==========================================
-# 2. KONTEN HALAMAN: EXPLORATORY DATA ANALYSIS (EDA)
-# ==========================================
 elif page == "📊 Exploratory Data Analysis":
     st.markdown("# 📊 Exploratory Data Analysis (EDA)")
     st.write("Halaman ini digunakan untuk menganalisis karakteristik awal dari *MovieLens Small Dataset*.")
@@ -147,9 +131,6 @@ elif page == "📊 Exploratory Data Analysis":
         st.info("💡 **Petunjuk:** Silakan klik tombol **'Run EDA Analysis'** di atas untuk memuat grafik visualisasi.")
 
 
-# ==========================================
-# 3. KONTEN HALAMAN: FEATURE ENGINEERING
-# ==========================================
 elif page == "⚙️ Feature Engineering":
     st.markdown("# ⚙️ Feature Engineering")
     st.write("Halaman ini mengimplementasikan transformasi fitur teks genre dari dataset asli agar siap diproses oleh algoritma Ensemble Learning.")
@@ -176,9 +157,6 @@ elif page == "⚙️ Feature Engineering":
         st.info("💡 **Petunjuk:** Silakan klik tombol **'Run Feature Engineering'** di atas untuk memproses ekstraksi kolom genre.")
 
 
-# ==========================================
-# 4. KONTEN HALAMAN: MODELLING & EVALUATION
-# ==========================================
 elif page == "🧠 Modelling & Evaluation":
     st.markdown("# 🧠 Modelling & Performance Evaluation")
     st.write("Halaman ini mengevaluasi performa algoritma berbasis pohon (*Tree-based*) menggunakan pendekatan *Ensemble Learning* (Bagging & Boosting).")
@@ -236,9 +214,6 @@ elif page == "🧠 Modelling & Evaluation":
         st.info("💡 **Petunjuk:** Klik tombol **'Train & Evaluate Models'** di atas untuk memuat tabel metrik dan grafik perbandingan performa.")
 
 
-# ==========================================
-# 5. KONTEN HALAMAN: MOVIE PREDICTION
-# ==========================================
 else:
     st.markdown("# 🎯 Movie Prediction Tool")
     st.write("Simulasikan pencarian rekomendasi film terbaik (*Top-N Recommendations*) secara real-time menggunakan kecerdasan buatan berbasis *Ensemble Learning*.")
