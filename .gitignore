@@ -1,0 +1,12 @@
+# Mengabaikan file model berukuran besar
+*.pkl
+*.joblib
+
+# Mengabaikan folder virtual environment
+env/
+venv/
+.venv/
+
+# Mengabaikan folder cache internal python & streamlit
+__pycache__/
+.streamlit/
